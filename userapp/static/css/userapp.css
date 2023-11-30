@@ -1,0 +1,228 @@
+
+/* 外部容器样式 */
+.registration-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 设置容器的高度占据整个视口高度 */
+}
+
+.registration-form {
+    margin-right: -600px;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form button[type="submit"] {
+    margin-top: 10px; /* 上边距以将按钮放在正下方 */
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff ;
+    color: #fff;
+    border: none ;
+    border-radius: 3px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+/* 外层容器样式 */
+.contain {
+    display: grid;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 60vh; /* 设置容器高度为视窗高度，以使其充满整个屏幕 */
+    margin-right: -600px;
+}
+
+
+/* 表单样式 */
+.bla {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    text-align: center; /* 设置文本居中对齐 */
+}
+
+
+/* 输入字段样式 */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* 提交按钮样式 */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px; /* 减小按钮大小 */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase; /* 文本转换为大写 */
+    display: block; /* 设置为块级元素，使其单独占一行 */
+    margin: 15px auto 0; /* 上边距增加到15px，下边距为0，水平居中 */
+}
+
+
+
+
+/* 主容器样式 */
+.user-container {
+    display: flex;
+    justify-content: center; /* 居中对齐子项 */
+    align-items: flex-start; /* 子项顶部对齐 */
+    padding: 20px; /* 容器内边距 */
+}
+
+/* 用户信息盒子样式 */
+.user-info-box {
+    width: 300px; /* 定义宽度 */
+    text-align: center; /* 文本居中 */
+    margin-right: 20px; /* 与用户简介之间的间距 */
+}
+
+.avatar {
+    width: 150px; /* 头像宽度 */
+    height: 150px; /* 头像高度 */
+    border-radius: 50%; /* 圆形头像 */
+    object-fit: cover; /* 覆盖填充方式 */
+    margin-bottom: 10px; /* 头像与下方文本的间距 */
+}
+
+.user-details p {
+    font-size: 20px; /* 文本大小 */
+    color: #333; /* 文本颜色 */
+    margin: 5px 0; /* 段落之间的间距 */
+}
+
+/* 用户简介部分样式 */
+.profile-section {
+    flex-grow: 1; /* 填充剩余空间 */
+    max-width: 600px; /* 最大宽度 */
+}
+
+.user-profile-title {
+    font-size: 1.6rem; /* 标题大小 */
+    font-weight: bold; /* 字体加粗 */
+    text-align: left; /* 文本左对齐 */
+    margin-bottom: 10px; /* 与下方框的间距 */
+}
+
+.user-bio {
+    border: 1px solid #ccc; /* 边框样式 */
+    height: 230px; /* 固定高度 */
+    padding: 10px; /* 内边距 */
+    margin-right: -500px;
+    overflow-y: auto; /* 内容过多时显示滚动条 */
+    text-align: left; /* 文本左对齐 */
+
+}
+
+/* 响应式设计：屏幕尺寸小于 600px 时 */
+@media only screen and (max-width: 600px) {
+    .user-container {
+        flex-direction: column; /* 垂直堆叠子项 */
+        align-items: center; /* 子项水平居中 */
+    }
+
+    .user-info-box,
+    .profile-section {
+        width: 100%; /* 宽度为100% */
+        margin-right: 0; /* 移除右间距 */
+    }
+
+    .user-profile-title {
+        text-align: center; /* 在小屏幕上标题居中 */
+    }
+
+    .user-bio {
+        margin-top: 20px; /* 与用户信息之间的间距 */
+    }
+}
+
+
+
+
+
+
+.custom-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.custom-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control, .form-control-file {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* 调整按钮样式和间距 */
+.btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media only screen and (max-width: 600px) {
+    .btn {
+        width: 100%;
+    }
+}
+
+/* 文本区域样式 */
+.form-group textarea {
+    resize: vertical; /* 允许垂直调整大小 */
+    min-height: 100px; /* 设置最小高度 */
+}

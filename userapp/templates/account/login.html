@@ -1,0 +1,30 @@
+{% extends "forum/base.html" %}
+{% load static %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again</p>
+    {% endif %}
+
+    <div class="contain">
+        <form class="bla" method="post" action="{% url 'userapp:login' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+           <p>No account? <a href="{% url 'userapp:register' %}">Register</a></p>
+        </form>
+    </div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/userapp.css' %}">
+{% endblock %}

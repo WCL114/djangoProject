@@ -1,0 +1,65 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if no_posts %}
+        <p class="no-posts-message">No one has posted</p>
+    {% else %}
+        {% for post in page %}
+            <div class="post">
+                <h1>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                    {% else %}
+                        <a href="{% url 'userapp:login' %}">{{ post.title }}</a>
+                    {% endif %}
+                    <span class="date">{{ post.published_date }}</span>
+                </h1>
+                <p class="truncate-text">{{ post.text|linebreaksbr }}</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+                {% else %}
+                    <a href="{% url 'userapp:login' %}">Comments: {{ post.approved_comments.count }}</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+    <div class="pagination-container">
+        <span class="step-links">
+            {% if page.has_previous %}
+                <a href="?page={{ page.previous_page_number }}">&laquo; 上一页</a>
+            {% endif %}
+
+            {# Show first page and ... if needed #}
+            {% if page.number > 4 %}
+                <a href="?page=1">1</a>
+                {% if page.number != 4 %}
+                    <span class="dot">...</span>
+                {% endif %}
+            {% endif %}
+
+            {# Show three page numbers around the current page #}
+            {% for i in page.paginator.page_range %}
+                {% if page.number == i %}
+                    <span class="current-page">{{ i }}</span>
+                {% elif i >= page.number|add:-3 and i <= page.number|add:3 %}
+                    <a href="?page={{ i }}">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {# Show last page and ... if needed #}
+            {% if page.number < page.paginator.num_pages|add:-3 %}
+                {% if page.number < page.paginator.num_pages|add:-3 %}
+                    <span class="dot">...</span>
+                {% endif %}
+                <a href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
+            {% endif %}
+            {% if page.has_next %}
+                <a href="?page={{ page.next_page_number }}">下一页 &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}

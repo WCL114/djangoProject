@@ -1,0 +1,56 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+    <h1>New Post</h1>
+    <form method="post" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="button" id="start-record-btn" class="btn btn-default">Speech input</button>
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    <script>
+        let recognition;
+        let recognizing = false;
+        let textarea = document.querySelector('.post-form textarea');
+
+
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+
+            recognition.onstart = function() {
+                recognizing = true;
+            };
+
+            recognition.onerror = function(event) {
+                console.error(event.error);
+            };
+
+            recognition.onend = function() {
+                recognizing = false;
+            };
+
+            recognition.onresult = function(event) {
+                let interim_transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        textarea.value += event.results[i][0].transcript + ' ';
+                    } else {
+                        interim_transcript += event.results[i][0].transcript;
+                    }
+                }
+                textarea.value += interim_transcript;
+            };
+        }
+
+        document.getElementById('start-record-btn').onclick = function() {
+            if (recognizing) {
+                recognition.stop();
+                return;
+            }
+            recognition.lang = 'zh-CN'; // 或者您选择的语言
+            recognition.start();
+        };
+    </script>
+{% endblock %}

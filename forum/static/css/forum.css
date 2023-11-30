@@ -1,0 +1,122 @@
+body {
+    padding-left: 20px;
+    font-family: 'Lobster', sans-serif;
+}
+
+h1 a{
+    color: #FCA205;
+}
+
+/* 样式化截断文本 */
+.truncate-text {
+    white-space: nowrap;       /* 不换行 */
+    overflow: hidden;          /* 隐藏溢出内容 */
+    text-overflow: ellipsis;   /* 显示省略号 */
+    max-width: 30%;           /* 可选：限制最大宽度 */
+}
+
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    vertical-align: middle;
+    line-height: 2.5;
+    font-size: 16px;
+    float: right;
+    margin-right: 250px;
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 80px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #ff9400;
+}
+
+.sign{
+    font-family: 'Lato', sans-serif;
+    vertical-align: middle;
+    line-height: 2.4;
+}
+
+.no-posts-message {
+    font-family: 'FontName', sans-serif;
+    font-size: 50px; /* 调整字体大小 */
+    font-weight: bold; /* 调整字体加粗 */
+    color: #ff0000; /* 调整字体颜色 */
+    /* 添加其他样式，如文本装饰等 */
+}
+
+.comment{
+    margin: 20px 0px 20px 20px;
+}
+
+.author-info {
+    font-size: 18px;
+    color: #828282;
+}
+
+
+
+.pagination-container {
+  /* Ensure the container is wide enough */
+  width: 100%;
+  text-align: center; /* Center the pagination links */
+  margin-left: -130px;
+  margin-bottom: 50px;
+}
+
+.step-links a, .step-links span {
+  /* Inline-block elements will flow in a line and respect padding/margin */
+  display: inline-block;
+  margin-right: 5px; /* Adjust the right margin as needed */
+  /* Clear floats if any */
+  float: none;
+}
+
+.step-links .dot {
+  /* Handle the appearance of dots */
+  display: inline-block;
+}
+
+/* Clearfix if floats are used elsewhere */
+.step-links::after {
+  content: "";
+  display: table;
+  clear: both;
+}

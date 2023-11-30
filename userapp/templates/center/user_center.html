@@ -1,0 +1,23 @@
+{% extends "forum/base.html" %}
+{% load static %}
+
+{% block content %}
+  <p>Welcome, {{ user.username }}!</p>
+  <a href="{% url 'userapp:edit_profile' pk=user.pk %}">Edit Your Profile</a>
+  <div class="user-container">
+    <div class="user-info-box">
+      <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s Avatar" class="avatar">
+      <div class="user-details">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+      </div>
+    </div>
+    <div class="profile-section">
+      <span class="user-profile-title">User Profile:</span>
+      <div class="user-bio">
+        {{ user.bio }}
+      </div>
+    </div>
+  </div>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/userapp.css' %}">
+{% endblock %}

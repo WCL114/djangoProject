@@ -1,0 +1,46 @@
+{% extends "forum/base.html" %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/userapp.css' %}">
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card custom-card">
+                <div class="card-header">
+                    <h2 class="text-center">编辑您的个人资料</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_avatar">头像</label>
+                            <input type="file" name="avatar" class="form-control-file" id="id_avatar">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_username">用户名</label>
+                            <input type="text" name="username" class="form-control" id="id_username" value="{{ user.username }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email">邮箱</label>
+                            <input type="email" name="email" class="form-control" id="id_email" value="{{ user.email }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password">密码</label>
+                            <input type="password" name="password" class="form-control" id="id_password">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_bio">简介</label>
+                            <textarea name="bio" class="form-control" id="id_bio" rows="3">{{ user.bio }}</textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">保存更改</button>
+                            <a href="{% url 'userapp:user_center' pk=user.pk %}" class="btn btn-secondary ml-2">取消</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
